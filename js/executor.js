@@ -1,4 +1,10 @@
-$(function() {
-	_selectors.main_table = $("#tableTetris");
+(function($){
+ $(init);	
+	
+ function init() {
+	ReadyDuty.process();
   Arena.construcArena();
-});
+ };
+})($);
+
+
