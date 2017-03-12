@@ -1,0 +1,3 @@
+$(function() {
+  Arena.construcArena();
+});
