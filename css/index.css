@@ -30,7 +30,7 @@ html,body {
 table#tableTetris {
   width: 275px;
   border-spacing: 0;
-	border: 1px solid black;
+	border: 1px solid #04517e;
   border-collapse: collapse;
 	float: right;
 }
