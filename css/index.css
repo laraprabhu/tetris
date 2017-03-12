@@ -18,7 +18,13 @@ html,body {
 
 .scoreBoard {
 	width: 225px;
-	background: green;
+	background: #04517e;
+}
+
+.scoreBoard .gameTitle {
+	font-family: 'Sigmar One', cursive;
+	color: #fff;
+	text-align: center;
 }
 
 table#tableTetris {
