@@ -1,5 +1,5 @@
 const _selectors = {
-  main_table: $("#tableTetris")
+  main_table: null
 };
 
 const _data = {
