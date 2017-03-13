@@ -19,12 +19,17 @@ html,body {
 .scoreBoard {
 	width: 225px;
 	background: #04517e;
+	font-family: 'Sigmar One', cursive;
 }
 
 .scoreBoard .gameTitle {
-	font-family: 'Sigmar One', cursive;
 	color: #fff;
 	text-align: center;
+}
+
+.scoreBoard .score, .scoreBoard .highScore {
+	text-align: center;
+	color: white;
 }
 
 table#tableTetris {
@@ -39,6 +44,22 @@ table#tableTetris td {
   border: 1px solid black;
 }
 
+table.showcase {
+  width: 100px;
+	height: 80px;
+  border-spacing: 0;
+	background: #fff;
+	border: 1px solid #04517e;
+  border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+}
+
+table.showcase td {
+  border: 1px solid black;
+}
+
 .floatRight {
 	float: right;
 }
@@ -49,4 +70,16 @@ table#tableTetris td {
 
 .heightHundred {
 	height: 100%;
+}
+
+.internalWrappers {
+	overflow: hidden;
+}
+
+#play.fa {
+	font-size: 48px;
+	margin-top: 25px;
+	color: white;
+	display: block;
+	text-align: center;
 }

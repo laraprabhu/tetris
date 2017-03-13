@@ -1,9 +1,10 @@
 class Arena {
   static construcArena() {
-    this.buildTableBody(_data.rowCnt, _data.colCnt);
+    this.buildTableBody(_selectors.main_table, _data.rowCnt, _data.colCnt);
+		this.buildTableBody(_selectors.show_case_table, _data.rowCnt_showCase, _data.colCnt_showCase);
   }
-  static buildTableBody(r, c) {
-    _selectors.main_table.html(this.tailorRowsAndCols.apply(this, arguments));
+  static buildTableBody(element, ...rowColCnt) {
+    element.html(this.tailorRowsAndCols.apply(this, rowColCnt));
   }
   static tailorRowsAndCols(r, c) {
     return this.pullOuterHTML($(_utils.tbody, {

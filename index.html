@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="js/library/jquery.js"></script>
 		<script src="js/constants.js"></script>
 		<script src="js/ready-duty.js"></script>
@@ -12,7 +13,19 @@
 	<body>
 		<div class="wrapper relativeElement">
 			<div class="scoreBoard floatRight heightHundred">
-				<h1 class="gameTitle">TETRIS</h1>
+				<div class="internalWrappers gameTitleWrapper">
+					<h1 class="gameTitle">TETRIS</h1>
+				</div>
+				<div class="internalWrappers showCaseWrapper">
+					<table class="showcase"></table>
+				</div>
+				<div class="internalWrappers scoresWrapper">
+					<div class="score">SCORE : <span>00000</span></div>
+					<div class="highScore">HIGH SCORE : <span>00000</span></div>
+				</div>
+				<div class="internalWrappers playWrapper">
+					<i id="play" class="fa fa-play-circle"></i>
+				</div>
 			</div>
 			<table id="tableTetris" class="floatRight heightHundred"></table>
 		</div>
