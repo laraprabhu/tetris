@@ -76,10 +76,15 @@ table.showcase td {
 	overflow: hidden;
 }
 
-#play.fa {
+i.fa {
 	font-size: 48px;
 	margin-top: 25px;
 	color: white;
-	display: block;
 	text-align: center;
+	transition: transform 0.2s ease;
+	cursor: pointer;
+}
+
+i.fa:hover {
+	transform: scale(0.95);
 }
