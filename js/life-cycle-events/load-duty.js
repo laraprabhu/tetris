@@ -5,6 +5,6 @@ class LoadDuty {
 	static process(){
 		setTimeout(function(){
 			_selectors.loader_spinny.addClass("remove");	
-		},_data.loader_removal_time);
+		}, _data.loader_removal_time);
 	}
 }

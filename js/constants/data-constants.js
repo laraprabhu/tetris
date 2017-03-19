@@ -3,5 +3,5 @@ const _data = {
   colCnt: 10,
 	rowCnt_showCase: 6,
   colCnt_showCase: 6,
-	loader_removal_time : 1000
+	loader_removal_time : 1500
 };

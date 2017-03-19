@@ -17,7 +17,7 @@ html,body {
 }
 
 .loader.remove {
-	top:-100%
+	top:-110%
 }
 
 .spinny {
@@ -73,7 +73,7 @@ table.showcase {
   width: 100px;
 	height: 80px;
   border-spacing: 0;
-	background: #fff;
+	background: lemonchiffon;
 	border: 1px solid #04517e;
   border-collapse: collapse;
 	margin-left: auto;
@@ -84,6 +84,10 @@ table.showcase {
 .internalWrappers.playWrapper { 
 	width: 134.50px;
 	margin: 0 auto;
+}
+
+.internalWrappers.scoresWrapper span {
+	color: wheat;
 }
 
 table.showcase td {
@@ -115,15 +119,49 @@ table.showcase td {
 
 .internalWrappers.devDetailsWrapper .devName a {
 	text-decoration: none;
+}
+
+.internalWrappers.devDetailsWrapper .devName a > span {
 	transition: color 0.25s ease;
-	color: yellowgreen;
 }
 
-.internalWrappers.devDetailsWrapper .devName a:hover {
-	color: white;
+.internalWrappers.devDetailsWrapper .devName a:hover > span {
+	color: lemonchiffon;
 }
 
-i.fa {
+.internalWrappers.devDetailsWrapper .controls a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.internalWrappers.devDetailsWrapper .controls a *{
+	transition: color 0.5s ease;
+}
+
+.internalWrappers.devDetailsWrapper .controls a:hover * {
+	color: lemonchiffon;
+}
+
+.devDetailsWrapper .controls i.fa { 
+	color: #fff;
+	font-size: 25px;
+}
+
+.devDetailsWrapper .controls span {
+	color: wheat;
+	margin-left: 5px;
+}
+
+.devDetailsWrapper .devName span:first-child {
+	color: #fff;
+}
+
+.devDetailsWrapper .devName span:last-child {
+	color: wheat;
+	margin-left: 5px;
+}
+
+.playWrapper i.fa { 
 	font-size: 48px;
 	width: 42px;
 	margin-top: 90px;
@@ -132,11 +170,12 @@ i.fa {
 	transition: transform 0.25s ease;
 }
 
-i.fa.disabled {
+.playWrapper i.fa.disabled {
 	opacity: 0.5;
 }
 
-i.fa:not(.disabled):hover {
+.playWrapper i.fa:not(.disabled):hover {
 	transform: scale(0.9);
+	color: lemonchiffon;
 	cursor: pointer;
 }

@@ -4,6 +4,6 @@ class ReadyDuty {
 		_selectors.show_case_table = $(".showcase");
 		_selectors.loader_spinny = $(".loader");
 		
-		LoadDuty.initiate(); 
+		LoadDuty.initiate();
 	}
 }
