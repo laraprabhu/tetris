@@ -1,5 +1,5 @@
 (function($){
- $(init);	
+ $(init);
 	
  function init() {
 	ReadyDuty.process();

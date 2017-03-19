@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
-		<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<script src="js/library/jquery.js"></script>
-		<script src="js/constants.js"></script>
-		<script src="js/ready-duty.js"></script>
-		<script src="js/arena.js"></script>
+		<script src="js/constants/selector-constants.js"></script>
+		<script src="js/constants/data-constants.js"></script>
+		<script src="js/constants/util-constants.js"></script>
+		<script src="js/life-cycle-events/load-duty.js"></script>
+		<script src="js/life-cycle-events/ready-duty.js"></script>
+		<script src="js/environment/arena.js"></script>
 		<script src="js/executor.js"></script>
 	</head>
 	<body>
 		<div class="wrapper relativeElement">
+			<div class="loader">
+				<div class="spinny relativeElement"></div>
+			</div>
 			<div class="scoreBoard floatRight heightHundred relativeElement">
 				<div class="internalWrappers gameTitleWrapper">
 					<h1 class="gameTitle">TETRIS</h1>
