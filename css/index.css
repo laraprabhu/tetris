@@ -31,6 +31,33 @@ html,body {
 	background-position: center center;
 }
 
+.controlDetails {
+	font-family: 'Sigmar One', cursive;
+	margin-top: 50px;
+	text-align: center;
+	color: #516774;
+}
+
+.controlDetails span {
+	color: rgba(38, 38, 38, 0.69);
+	font-size: 25px;
+	margin-right: 5px;
+}
+
+div.controlDetails div:last-child {
+	margin-top: 30px;	
+}
+
+div.controlDetails div:last-child span {
+	color: #009688;
+	transition: opacity 0.5s ease;
+	cursor: pointer;
+}
+
+div.controlDetails div:last-child span:hover {
+	opacity: 0.6;
+}
+
 .wrapper {
 	box-shadow: 0px 5px 18px 5px #a9a9a9;
 	margin-left: auto;
@@ -172,6 +199,10 @@ table.showcase td {
 
 .playWrapper i.fa.disabled {
 	opacity: 0.5;
+}
+
+.hidden{
+	display: none;
 }
 
 .playWrapper i.fa:not(.disabled):hover {

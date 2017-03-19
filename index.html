@@ -4,6 +4,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<!-- 
+			* SCRIPT ORDER SHOULD NOT BE CHANGED.
+			* SIDE NOTE : Don't Laugh at the count of loaded files. I was just lazy to use requireJS. :-)
+		-->
 		<script src="js/library/jquery.js"></script>
 		<script src="js/constants/selector-constants.js"></script>
 		<script src="js/constants/data-constants.js"></script>
@@ -20,6 +24,15 @@
 		<div class="wrapper relativeElement">
 			<div class="loader">
 				<div class="spinny relativeElement"></div>
+				<div class="controlDetails hidden">
+					<div><span>S</span> Key to stop the game</div>
+					<div><span>P</span> Key to play/pause the game</div>
+					<div><span>down</span> Key to move the block downwards</div>
+					<div><span>up</span> Key to change the block to its next shape</div>
+					<div><span>left</span> Key to move the block leftwards</div>
+					<div><span>right</span> Key to move the block rightwards</div>
+					<div><span><i class="fa fa-thumbs-up" aria-hidden="true"></i> GOT IT</span></div>
+				</div>
 			</div>
 			<div class="scoreBoard floatRight heightHundred relativeElement">
 				<div class="internalWrappers gameTitleWrapper">
@@ -39,14 +52,10 @@
 				</div>
 				<div class="internalWrappers devDetailsWrapper">
 					<div class="controls">
-						<a href="#">
-							<i class="fa fa-gamepad" aria-hidden="true"></i><span>Controls</span>
-						</a>
+						<a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i><span>Controls</span></a>
 					</div>
 					<div class="devName">
-						<a target="_blank" href="http://stackoverflow.com/users/1209018/rajaprabhu-aravindasamy">
-							<span>Developer</span><span>Prabhu</span>
-						</a>
+						<a target="_blank" href="http://stackoverflow.com/users/1209018/rajaprabhu-aravindasamy"><span>Developer</span><span>Prabhu</span></a>
 					</div>
 				</div>
 			</div>

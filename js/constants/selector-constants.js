@@ -5,5 +5,6 @@ const _selectors = {
 	play_button: null,
 	pause_button: null,
 	stop_button: null,
-	control_button : null
+	control_button : null,
+	got_it_button: null
 };

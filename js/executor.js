@@ -1,7 +1,7 @@
 "use strict";
 
 (function($){
- $(ReadyDuty.implement);
+	$(ReadyDuty.implement);
 })($);
 
 
