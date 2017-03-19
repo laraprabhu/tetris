@@ -56,6 +56,11 @@ table.showcase {
 	margin-bottom: 25px;
 }
 
+.internalWrappers.playWrapper { 
+	width: 132.50px;
+	margin: 0 auto;
+}
+
 table.showcase td {
   border: 1px solid black;
 }
