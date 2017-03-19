@@ -10,10 +10,8 @@ class ReadyDuty {
 		MouseEvents.implement();
 	}
 	static cacheSelectors(){
-		_selectors.main_table = $("#tableTetris");
-		_selectors.show_case_table = $(".showcase");
-		_selectors.loader_spinny = $(".loader");
-		_selectors.control_button = $(".internalWrappers.devDetailsWrapper .controls a");
-		_selectors.got_it_button = $(".controlDetails div:last-child span");
+		Object.keys(_selectors).forEach(function(prop){
+			_selectors[prop] = $(_selectors_string[prop]);
+		});
 	}
 }
