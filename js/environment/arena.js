@@ -1,3 +1,5 @@
+"use strict";
+
 class Arena {
   static construcArena() {
     this.buildTableBody(_selectors.main_table, _data.rowCnt, _data.colCnt);
