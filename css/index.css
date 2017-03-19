@@ -83,13 +83,19 @@ table.showcase td {
 
 .internalWrappers.devDetailsWrapper {
 	position: absolute;
+	text-align: center;
 	bottom: 8px;
 	width: 100%;
 }
 
-.internalWrappers.devDetailsWrapper .devName {
+.internalWrappers.devDetailsWrapper .devName a {
+	text-decoration: none;
+	transition: color 0.25s ease;
 	color: yellowgreen;
-	text-align: center;
+}
+
+.internalWrappers.devDetailsWrapper .devName a:hover {
+	color: white;
 }
 
 i.fa {
