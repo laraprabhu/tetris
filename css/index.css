@@ -57,7 +57,7 @@ table.showcase {
 }
 
 .internalWrappers.playWrapper { 
-	width: 132.50px;
+	width: 134.50px;
 	margin: 0 auto;
 }
 
@@ -83,13 +83,18 @@ table.showcase td {
 
 i.fa {
 	font-size: 48px;
+	width: 42px;
 	margin-top: 25px;
 	color: white;
 	text-align: center;
-	transition: transform 0.2s ease;
-	cursor: pointer;
+	transition: transform 0.25s ease;
 }
 
-i.fa:hover {
-	transform: scale(0.95);
+i.fa.disabled {
+	opacity: 0.5;
+}
+
+i.fa:not(.disabled):hover {
+	transform: scale(0.9);
+	cursor: pointer;
 }
