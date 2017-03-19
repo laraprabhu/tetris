@@ -1,6 +1,9 @@
 const _selectors = {
   main_table: null,
-	show_case_table : null
+	show_case_table : null,
+	play_button: null,
+	pause_button: null,
+	stop_button: null
 };
 
 const _data = {

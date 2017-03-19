@@ -81,10 +81,21 @@ table.showcase td {
 	overflow: hidden;
 }
 
+.internalWrappers.devDetailsWrapper {
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+}
+
+.internalWrappers.devDetailsWrapper .devName {
+	color: yellowgreen;
+	text-align: center;
+}
+
 i.fa {
 	font-size: 48px;
 	width: 42px;
-	margin-top: 25px;
+	margin-top: 90px;
 	color: white;
 	text-align: center;
 	transition: transform 0.25s ease;
