@@ -4,5 +4,6 @@ const _selectors = {
 	loader_spinny : null,
 	play_button: null,
 	pause_button: null,
-	stop_button: null
+	stop_button: null,
+	control_button : null
 };

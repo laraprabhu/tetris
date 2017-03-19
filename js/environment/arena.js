@@ -1,7 +1,7 @@
 "use strict";
 
 class Arena {
-  static construcArena() {
+  static implement() {
     this.buildTableBody(_selectors.main_table, _data.rowCnt, _data.colCnt);
 		this.buildTableBody(_selectors.show_case_table, _data.rowCnt_showCase, _data.colCnt_showCase);
   }

@@ -3,5 +3,6 @@ const _utils = {
   empty: "",
   tbody: "<tbody>",
   tr: "<tr>",
-  td: "<td>"
+  td: "<td>",
+	click: "click"
 };

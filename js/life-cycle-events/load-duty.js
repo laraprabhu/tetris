@@ -1,7 +1,7 @@
 "use strict";
 
 class LoadDuty {
-	static initiate(){
+	static implement(){
 		$(window).load(this.process.bind(this));
 	}
 	static process(){
