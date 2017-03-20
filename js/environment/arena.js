@@ -2,6 +2,8 @@
 
 class Arena {
   static implement() {
+		_data.initialPositionX = Math.ceil(_data.colCnt/2);
+		_data.initialPositionShowcaseX = Math.ceil(_data.colCnt_showCase/2);
     this.buildTableBody(_selectors.main_table, _data.rowCnt, _data.colCnt);
 		this.buildTableBody(_selectors.show_case_table, _data.rowCnt_showCase, _data.colCnt_showCase);
   }

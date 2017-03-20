@@ -4,6 +4,11 @@ const _data = {
 	rowCnt_showCase: 6,
   colCnt_showCase: 6,
 	loader_removal_time : 1500,
+	speed : 500,
+	initialPositionX: 0,
+	initialPositionY: 0,
+	initialPositionShowcaseX: 0,
+	initialPositionShowcaseY: 0,
 	blocks: [
 		[
 			[
