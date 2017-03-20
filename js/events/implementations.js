@@ -11,12 +11,14 @@ class Implementations {
 		_selectors.loader_spinny.addClass(_classes.remove);
 	}
 	static play_button_click(){
+		Game.startGame();
 		$(this).addClass(_classes.disabled).siblings().removeClass(_classes.disabled);
 	}
 	static pause_button_click(){
 		$(this).addClass(_classes.disabled).prev().removeClass(_classes.disabled);
 	}
 	static stop_button_click(){
+		Game.stopGame();
 		$(this)
 			.add(this.previousElementSibling)
 				.addClass(_classes.disabled)
