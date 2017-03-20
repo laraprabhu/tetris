@@ -20,8 +20,10 @@ class Block {
 		this.position.y++;
 	}
 	draw(){
-		this.clearFootPath();
-		
+		this.clearFootPath(this.previousPosition);
+		this.makeFootPath(this.position);
+		this.moveDown();
+		this.settle();
 	}
 	settle(){
 		
@@ -29,7 +31,19 @@ class Block {
 	giveBirth(){
 		
 	}
-	clearFootPath(){
-		
+	pathDecider(position, canErase){
+		if(!position) return;
+		for(let i=position.y; i<position.y - _data.blockSize; i--){
+			for(let j=position.x; j<position.x + _data.blockSize; i++){
+				$(_selectors.main_table_rows.eq(i), "eq("+ j +")")
+					[canErase ? "removeClass" : "addClass"](_classes.marked);
+			}
+		}
+	}
+	makeFootPath(position){
+		this.pathDecider(position);
+	}
+	clearFootPath(position){
+		this.pathDecider(position, true);
 	}
 }

@@ -202,6 +202,10 @@ table.showcase td {
 	opacity: 0.5;
 }
 
+.marked{
+	background: red;
+}
+
 .hidden{
 	display: none;
 }

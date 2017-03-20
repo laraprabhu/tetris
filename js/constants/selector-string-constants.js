@@ -1,5 +1,6 @@
 const _selectors_string = {
   main_table: "#tableTetris",
+	main_table_rows : "#tableTetris tr"
 	show_case_table : ".showcase",
 	loader_spinny : ".loader",
 	play_wrapper: ".playWrapper",

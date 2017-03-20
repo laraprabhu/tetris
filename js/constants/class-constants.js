@@ -1,5 +1,6 @@
 _classes = {
 	remove: "remove",
 	hidden: "hidden",
-	disabled: "disabled"
+	disabled: "disabled",
+	marked: "marked"
 }
