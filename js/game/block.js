@@ -26,7 +26,8 @@ class Block {
 		this.settle();
 	}
 	settle(){
-		if(this.position.y == _selectors.main_table_rows.length - 1){
+		if(this.position.y == _selectors.main_table_rows.length){
+			this.previousPosition = null;
 			this.giveBirth();
 		}
 	}
@@ -40,14 +41,16 @@ class Block {
 		if(!position) return;
 		for(let i=position.y,a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
 			for(let j=position.x,b=0; j<position.x + _data.blockSize; j++, b++){
-				$(_selectors.main_table_rows.eq(i), "eq("+ j +")")
+				if(i < 0) continue;
+				
+				$("td:eq("+ j +")", _selectors.main_table_rows.eq(i))
 					[canErase ? "removeClass" : "addClass"]
 				((this.blockData[a][b] || canErase) ? _classes.marked : _utils.empty);
 			}
 		}
 	}
 	makeFootPath(position){
-		this.previousPosition = position;
+		this.previousPosition = JSON.parse(JSON.stringify(position));
 		this.pathDecider(position);
 	}
 	clearFootPath(position){

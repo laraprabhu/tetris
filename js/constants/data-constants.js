@@ -4,7 +4,7 @@ const _data = {
 	rowCnt_showCase: 6,
   colCnt_showCase: 6,
 	loader_removal_time : 1500,
-	speed: 500,
+	speed: 1000,
 	blockSize: 3,
 	intervalId: 0,
 	initialPositionX: 0,
