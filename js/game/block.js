@@ -53,10 +53,6 @@ class Block {
 			}
 		}
 	}
-	crossedBoundary(position) {
-		
-		return position.x < 0 || (position.x + _data.blockSize) > _data.colCnt;
-	}
 	isPathNotIgnored(overrider, position){
 		var overriderName = overrider.name;
 		var res = ["moveLeft","moveRight"].includes(overriderName);
@@ -76,7 +72,7 @@ class Block {
 				var isBoundaryCrossed = (this.blockData[a][b] && ((j < 0) || !elem.length));
 				if(i < 0 && !isBoundaryCrossed) continue;
 				if((this.blockData[a][b] && elem.hasClass(_classes.marked) && !elem.hasClass(_classes.current)) 
-					 	|| (this.blockData[a][b] && ((j < 0) || !elem.length))) {
+					 	|| isBoundaryCrossed) {
 					return true;
 				}
 			}
