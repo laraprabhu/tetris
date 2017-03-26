@@ -8,6 +8,7 @@ class Block {
 		this.blockData = blockData.shift();
 		this.wholeBlockData = blockData.shift();
 		this.blockIndex = blockData.shift();
+		this.color = blockData.shift();
 		this.position = {
 			x : _data.initialPositionX,
 			y : _data.initialPositionY
@@ -80,12 +81,10 @@ class Block {
 		
 		if(len = rows.length){
 			Arena.updateScores(Game.totalScores += (len * 100));
-			rows.hide("fast", function(){
-				$(this).remove();
+			rows.hide().remove();
 				_selectors.main_table.prepend(Arena.tailorRowsAndCols(len, _data.colCnt));
 				_selectors.main_table = $(_selectors_string.main_table);
 				_selectors.main_table_rows = $(_selectors_string.main_table_rows);
-			});
 		}
 	}
 	isPathNotIgnored(overrider, position){
@@ -125,7 +124,8 @@ class Block {
 				var elem = $("td:eq("+ j +")", tableRows.eq(i));
 				if(i < 0) continue;
 				if(canErase) elem = elem.filter("." + _classes.current);
-				elem[canErase ? "removeClass" : "addClass"](blockData[a][b] ? _classes.marked + " " + _classes.current : "");
+				elem[canErase ? "removeClass" : "addClass"](blockData[a][b] ? 
+					this.color + " " + _classes.marked + " " + _classes.current : "");
 			}
 		}
 	}

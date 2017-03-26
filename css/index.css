@@ -99,7 +99,7 @@ table#tableTetris {
 }
 
 table#tableTetris td {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 table.showcase {
@@ -124,7 +124,7 @@ table.showcase {
 }
 
 table.showcase td {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .floatRight {
@@ -207,10 +207,6 @@ table.showcase td {
 	opacity: 0.5;
 }
 
-.marked{
-	background: red;
-}
-
 .hidden{
 	display: none;
 }
@@ -220,3 +216,36 @@ table.showcase td {
 	color: lemonchiffon;
 	cursor: pointer;
 }
+
+.marked {
+	1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.orange {
+	background: #ffc863;
+}
+
+.red {
+	background: #cf4d4d;
+}
+
+.green {
+	background: #5a875a;
+}
+
+.yellow {
+	background: #707070;
+}
+
+.blue {
+	background: #5050bd;
+}
+
+.violet {
+	background: #834d83;
+}
+
+.indigo {
+	background: #b08bcb;
+}
+

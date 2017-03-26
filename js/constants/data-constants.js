@@ -12,6 +12,9 @@ const _data = {
 	initialPositionY: -1,
 	initialPositionShowcaseX: 0,
 	initialPositionShowcaseY: 3,
+	colors: [
+		"red", "orange","yellow","green","blue","indigo","violet"
+	],
 	blocks: [
 		[
 			[

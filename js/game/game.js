@@ -42,7 +42,7 @@ class Game{
 	static pickRandomBlock(){
 		let outerLayer = _data.blocks[this.randomNumber(_data.blocks.length)];
 		let preservable = this.randomNumber(outerLayer.length);
-		return [outerLayer[preservable], outerLayer, preservable];
+		return [outerLayer[preservable], outerLayer, preservable, _data.colors[Game.randomNumber(_data.colors.length)]];
 	}
 	static endGame(){
 		this.pauseGame();
