@@ -19,37 +19,76 @@ class Block {
 	moveDown(){
 		this.position.y++;
 	}
-	draw(manualOverride){
-		this.clearFootPath(this.previousPosition);
-		this.makeFootPath(this.position);
-		if(!manualOverride) this.moveDown();
-		this.settle();
-	}
-	settle(){
-		if(this.position.y == _selectors.main_table_rows.length){
-			this.previousPosition = null;
-			Game.spawnBlock();
+	draw(){
+		this.moveDown();
+		if(!this.settle()){
+				this.clearFootPath(this.previousPosition);
+				this.makeFootPath(this.position);		
 		}
 	}
-	detectCollision(){
-		
+	drawManualOverride(overriderFunction){
+		overriderFunction.call(this);
+		if(!this.settle()){
+				this.clearFootPath(this.previousPosition);
+				this.makeFootPath(this.position);		
+		}
 	}
-	pathDecider(position, canErase, table = _selectors.main_table_rows){
+	makeMovement(keycode){
+		if(keycode == 37){
+			this.drawManualOverride(this.moveLeft);
+		} else if(keycode == 39){
+			this.drawManualOverride(this.moveRight);
+		} else if(keycode == 40) {
+			this.drawManualOverride(this.moveDown);
+		}
+	}
+	settle(){
+		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position)){
+			this.previousPosition = null;
+			this.clearCurrentState();
+			Game.spawnBlock();
+			return true;
+		}
+	}
+	isPathBlocked(position, tableRows = _selectors.main_table_rows) {
 		if(!position) return;
-		for(let i=position.y,a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
-			for(let j=position.x,b=0; j<position.x + _data.blockSize; j++, b++){
+		for(let i=position.y, a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
+			for(let j=position.x, b=0; j<position.x + _data.blockSize; j++, b++){
 				if(i < 0) continue;
-				$("td:eq("+ j +")", table.eq(i))
-					[canErase ? "removeClass" : "addClass"]
-				((this.blockData[a][b] || canErase) ? _classes.marked : _utils.empty);
+				var elem = $("td:eq("+ j +")", tableRows.eq(i));
+				if(this.blockData[a][b] && elem.hasClass(_classes.marked) && !elem.hasClass(_classes.current)){
+					return true;
+				}
+			}
+		}
+	}
+	reachedBottom(position){
+		return position.y == _selectors.main_table_rows.length
+	}
+	pathDecider(position, canErase, tableRows = _selectors.main_table_rows){
+		if(!position) return;
+		for(let i=position.y, a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
+			for(let j=position.x, b=0; j<position.x + _data.blockSize; j++, b++){
+				var elem = $("td:eq("+ j +")", tableRows.eq(i));
+				
+				if(i < 0) continue;
+				if(canErase) elem = elem.filter("." + _classes.current);
+				
+				elem[canErase ? "removeClass" : "addClass"](this.blockData[a][b] ? _classes.marked + " " + _classes.current : "");
 			}
 		}
 	}
 	makeFootPath(position){
-		this.previousPosition = JSON.parse(JSON.stringify(position));
+		this.previousPosition = this.clonePosition(position);
 		this.pathDecider(position);
 	}
 	clearFootPath(position){
 		this.pathDecider(position, true);
+	}
+	clearCurrentState(){
+		_selectors.main_table_rows.find("." + _classes.current).removeClass(_classes.current);
+	}
+	clonePosition(position){
+		return JSON.parse(JSON.stringify(position));
 	}
 }

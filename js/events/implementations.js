@@ -26,20 +26,8 @@ class Implementations {
 						.removeClass(_classes.disabled);
 	}
 	static keyEventHandler(e) {
-		switch (e.keyCode){
-			case 37:
-				Game.ongoingBlock.moveLeft();
-				break;
-			case 38:
-				break;
-			case 39:
-				Game.ongoingBlock.moveRight();
-				break;
-			case 40:
-				Game.ongoingBlock.moveDown();
-				break;
+		if(Game.ongoingBlock && [37,39,40].includes(e.keyCode)){
+			Game.ongoingBlock.makeMovement(e.keyCode);	
 		}
-		
-		Game.ongoingBlock.draw(true);
 	}
 }

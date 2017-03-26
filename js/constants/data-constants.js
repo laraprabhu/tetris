@@ -8,7 +8,7 @@ const _data = {
 	blockSize: 3,
 	intervalId: 0,
 	initialPositionX: 0,
-	initialPositionY: 0,
+	initialPositionY: -1,
 	initialPositionShowcaseX: 0,
 	initialPositionShowcaseY: 0,
 	blocks: [
