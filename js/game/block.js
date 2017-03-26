@@ -28,7 +28,7 @@ class Block {
 	}
 	drawManualOverride(overriderFunction){
 		overriderFunction.call(this);
-		if(!this.settle()){
+		if(!this.settle(overriderFunction)){
 				this.clearFootPath(this.previousPosition);
 				this.makeFootPath(this.position);		
 		}
@@ -42,13 +42,25 @@ class Block {
 			this.drawManualOverride(this.moveDown);
 		}
 	}
-	settle(){
+	settle(overrider = {}){
 		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position)){
-			this.previousPosition = null;
-			this.clearCurrentState();
-			Game.spawnBlock();
-			return true;
+			if(this.isPathNotIgnored(overrider)){
+				this.previousPosition = null;
+				this.clearCurrentState();
+				Game.spawnBlock();
+				return true;	
+			}
 		}
+	}
+	isPathNotIgnored(overrider){
+		var res = ["moveLeft","moveRight"].includes(overrider.name);
+		if(res){
+			if(overrider.name == "moveLeft") 
+				this.position.x++;
+			else 
+				this.position.x--;	
+		}
+		return !res;
 	}
 	isPathBlocked(position, tableRows = _selectors.main_table_rows) {
 		if(!position) return;
@@ -70,10 +82,9 @@ class Block {
 		for(let i=position.y, a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
 			for(let j=position.x, b=0; j<position.x + _data.blockSize; j++, b++){
 				var elem = $("td:eq("+ j +")", tableRows.eq(i));
-				
 				if(i < 0) continue;
-				if(canErase) elem = elem.filter("." + _classes.current);
 				
+				if(canErase) elem = elem.filter("." + _classes.current);
 				elem[canErase ? "removeClass" : "addClass"](this.blockData[a][b] ? _classes.marked + " " + _classes.current : "");
 			}
 		}
