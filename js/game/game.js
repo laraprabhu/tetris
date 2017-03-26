@@ -6,23 +6,8 @@ class Game{
 			this.ongoingBlock.draw();
 		}, _data.speed);
 	}
-	static stopGame(){
-		this.ongoingBlock = null;
-		this.pauseGame();
-		Arena.implement();
-	}
 	static pauseGame(){
 		this.destroyTimer();
-	}
-	static startGame(){
-		if(this.ongoingBlock) {
-			this.playGame();
-			return;
-		}
-		
-		this.totalScores = 0;
-		this.nextBlock = null;
-		this.spawnBlock();	
 	}
 	static spawnBlock(){
 		this.ongoingBlock = this.nextBlock || new Block(this.pickRandomBlock());
@@ -39,6 +24,20 @@ class Game{
 	}
 	static destroyTimer(){
 		clearInterval(_data.intervalId);
+	}
+	static startGame(){
+		if(this.ongoingBlock) {
+			this.playGame();
+			return;
+		}
+		this.totalScores = 0;
+		this.nextBlock = null;
+		this.spawnBlock();	
+	}
+	static stopGame(){
+		this.ongoingBlock = null;
+		this.pauseGame();
+		Arena.implement();
 	}
 	static pickRandomBlock(){
 		let outerLayer = _data.blocks[this.randomNumber(_data.blocks.length)];

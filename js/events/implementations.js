@@ -21,7 +21,7 @@ class Implementations {
 	static stop_button_click(){
 		Game.stopGame();
 		$(this)
-			.add(this.previousElementSibling)
+			.add($(this).prev())
 				.addClass(_classes.disabled)
 					.prev(_selectors_string.play_button)
 						.removeClass(_classes.disabled);
@@ -30,6 +30,18 @@ class Implementations {
 		if(Game.ongoingBlock){
 			if([37,38,39,40].includes(e.keyCode)) {
 				Game.ongoingBlock.makeMovement(e.keyCode);	
+			}  
+		}
+		
+		if(e.keyCode == 80){
+			if(_selectors.pause_button.is("." + _classes.disabled)) {
+				Implementations.play_button_click.call(_selectors.play_button);
+			} else {
+				Implementations.pause_button_click.call(_selectors.pause_button);
+			}
+		} else if(e.keyCode == 83){
+			if(!_selectors.stop_button.is("." + _classes.disabled)) {
+				Implementations.stop_button_click.call(_selectors.stop_button);
 			}
 		}
 	}
