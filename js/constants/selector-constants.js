@@ -9,5 +9,7 @@ const _selectors = {
 	stop_button: null,
 	control_button : null,
 	got_it_button: null,
-	main_table_rows: null
+	main_table_rows: null,
+	score: null,
+	highScore: null
 };

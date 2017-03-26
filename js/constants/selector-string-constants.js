@@ -12,5 +12,7 @@ const _selectors_string = {
 	stop_button: ".stop",
 	not_disabled: ":not(.disabled)",
 	control_details: ".controlDetails",
-	spinny: ".spinny"
+	spinny: ".spinny",
+	score: ".score span",
+	highScore: ".highScore span"
 };

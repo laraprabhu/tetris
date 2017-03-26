@@ -70,15 +70,15 @@ class Block {
 		}
 	}
 	detectAndRemovePatterns(){
-		var rows = _selectors.main_table_rows.filter(function(){ 
+		var len, rows = _selectors.main_table_rows.filter(function(){ 
 			return $(this).find("." + _classes.marked).length == _data.colCnt; 
 		});
 		
-		if(rows.length){
-			clearInterval(_data.intervalId);
+		if(len = rows.length){
+			Arena.updateScores(Game.totalScores += (len * 100));
 			rows.hide("fast", function(){
 				$(this).remove();
-				_selectors.main_table.prepend(Arena.tailorRowsAndCols(rows.length, _data.colCnt));
+				_selectors.main_table.prepend(Arena.tailorRowsAndCols(len, _data.colCnt));
 				_selectors.main_table = $(_selectors_string.main_table);
 				_selectors.main_table_rows = $(_selectors_string.main_table_rows);
 			});

@@ -6,6 +6,7 @@ const _data = {
 	loader_removal_time : 1500,
 	speed: 1000,
 	blockSize: 3,
+	scoreDigitCnt : 5,
 	intervalId: 0,
 	initialPositionX: 0,
 	initialPositionY: -1,

@@ -2,6 +2,7 @@
 
 class Game{
 	static startGame(){
+		this.totalScores = 0;
 		this.spawnBlock();
 	}
 	static stopGame(){
