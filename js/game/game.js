@@ -1,13 +1,28 @@
 "use strict";
 
 class Game{
-	static startGame(){
-		this.totalScores = 0;
-		this.nextBlock = null;
-		this.spawnBlock();
+	static playGame(){
+		_data.intervalId = setInterval(() => {
+			this.ongoingBlock.draw();
+		}, _data.speed);
 	}
 	static stopGame(){
+		this.ongoingBlock = null;
+		this.pauseGame();
+		Arena.implement();
+	}
+	static pauseGame(){
 		this.destroyTimer();
+	}
+	static startGame(){
+		if(this.ongoingBlock) {
+			this.playGame();
+			return;
+		}
+		
+		this.totalScores = 0;
+		this.nextBlock = null;
+		this.spawnBlock();	
 	}
 	static spawnBlock(){
 		this.ongoingBlock = this.nextBlock || new Block(this.pickRandomBlock());
@@ -20,9 +35,7 @@ class Game{
 			y : _data.initialPositionShowcaseY 
 		}, false, this.nextBlock.blockData, _selectors.show_case_table_rows);
 		
-		_data.intervalId = setInterval(() => {
-			this.ongoingBlock.draw();
-		}, _data.speed);
+		this.playGame();
 	}
 	static destroyTimer(){
 		clearInterval(_data.intervalId);

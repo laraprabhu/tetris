@@ -15,6 +15,7 @@ class Implementations {
 		$(this).addClass(_classes.disabled).siblings().removeClass(_classes.disabled);
 	}
 	static pause_button_click(){
+		Game.pauseGame();
 		$(this).addClass(_classes.disabled).prev().removeClass(_classes.disabled);
 	}
 	static stop_button_click(){
