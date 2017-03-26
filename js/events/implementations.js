@@ -26,8 +26,10 @@ class Implementations {
 						.removeClass(_classes.disabled);
 	}
 	static keyEventHandler(e) {
-		if(Game.ongoingBlock && [37,39,40].includes(e.keyCode)){
-			Game.ongoingBlock.makeMovement(e.keyCode);	
+		if(Game.ongoingBlock){
+			if([37,38,39,40].includes(e.keyCode)) {
+				Game.ongoingBlock.makeMovement(e.keyCode);	
+			}
 		}
 	}
 }

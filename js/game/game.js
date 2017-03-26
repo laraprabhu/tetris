@@ -20,7 +20,8 @@ class Game{
 	}
 	static pickRandomBlock(){
 		let outerLayer = _data.blocks[this.randomNumber(_data.blocks.length)];
-		return outerLayer[this.randomNumber(outerLayer.length)];
+		let preservable = this.randomNumber(outerLayer.length);
+		return [outerLayer[preservable], outerLayer, preservable];
 	}
 	static randomNumber(num){
 		return Math.floor(Math.random() * num);
