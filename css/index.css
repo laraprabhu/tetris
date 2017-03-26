@@ -30,7 +30,12 @@ html,body {
 	background: url(../images/gear.gif);
 	background-position: center center;
 }
-
+div.gameover{
+	margin-top: 200px;
+}
+div.gameover > span {
+	font-size: 45px;
+}
 .controlDetails {
 	font-family: 'Sigmar One', cursive;
 	margin-top: 50px;

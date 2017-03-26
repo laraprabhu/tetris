@@ -44,6 +44,17 @@ class Game{
 		let preservable = this.randomNumber(outerLayer.length);
 		return [outerLayer[preservable], outerLayer, preservable];
 	}
+	static endGame(){
+		this.pauseGame();
+		_selectors.pause_button.addClass(_classes.disabled);
+		_selectors.play_button.addClass(_classes.disabled);
+		_selectors.loader_spinny
+			.removeClass(_classes.remove).end()
+				.find(_selectors_string.spinny).addClass(_classes.hidden).end()
+					.find(_selectors_string.control_details).removeClass(_classes.hidden)
+						.find(_selectors_string.gameover).removeClass(_classes.hidden)
+							.prevAll(_selectors_string.div).addClass(_classes.hidden);
+	}
 	static randomNumber(num){
 		return Math.floor(Math.random() * num);
 	}

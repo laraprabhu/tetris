@@ -61,11 +61,15 @@ class Block {
 	settle(overrider = {}){
 		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position)){
 			if(this.isPathNotIgnored(overrider, this.position)){
-				this.previousPosition = null;
-				this.clearCurrentState();
-				this.detectAndRemovePatterns();
-				Game.spawnBlock();
-				return true;	
+				if(this.position.y != 0){
+					this.previousPosition = null;
+					this.clearCurrentState();
+					this.detectAndRemovePatterns();
+					Game.spawnBlock();		
+				} else {
+					Game.endGame();		
+				}
+				return true;
 			}
 		}
 	}

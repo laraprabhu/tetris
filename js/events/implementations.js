@@ -5,7 +5,10 @@ class Implementations {
 		_selectors.loader_spinny
 			.removeClass(_classes.remove)
 				.find(_selectors_string.spinny).addClass(_classes.hidden).end()
-					.find(_selectors_string.control_details).removeClass(_classes.hidden);
+					.find(_selectors_string.control_details).removeClass(_classes.hidden)
+						.find(_selectors_string.div).removeClass(_classes.hidden).end()
+							.find(_selectors_string.gameover)
+								.addClass(_classes.hidden);
 	}
 	static got_it_button_click(){
 		_selectors.loader_spinny.addClass(_classes.remove);
@@ -34,9 +37,9 @@ class Implementations {
 		}
 		
 		if(e.keyCode == 80){
-			if(_selectors.pause_button.is("." + _classes.disabled)) {
+			if(!_selectors.play_button.is("." + _classes.disabled)) {
 				Implementations.play_button_click.call(_selectors.play_button);
-			} else {
+			} else if(!_selectors.pause_button.is("." + _classes.disabled)) {
 				Implementations.pause_button_click.call(_selectors.pause_button);
 			}
 		} else if(e.keyCode == 83){

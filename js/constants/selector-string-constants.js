@@ -15,5 +15,7 @@ const _selectors_string = {
 	control_details: ".controlDetails",
 	spinny: ".spinny",
 	score: ".score span",
-	highScore: ".highScore span"
+	highScore: ".highScore span",
+	gameover: ".gameover",
+	div: "div"
 };
