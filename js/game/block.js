@@ -75,10 +75,13 @@ class Block {
 		});
 		
 		if(rows.length){
-			rows.remove();
-			_selectors.main_table.prepend(Arena.tailorRowsAndCols(rows.length, _data.colCnt));
-			_selectors.main_table = $(_selectors_string.main_table);
-			_selectors.main_table_rows = $(_selectors_string.main_table_rows);
+			clearInterval(_data.intervalId);
+			rows.hide("fast", function(){
+				$(this).remove();
+				_selectors.main_table.prepend(Arena.tailorRowsAndCols(rows.length, _data.colCnt));
+				_selectors.main_table = $(_selectors_string.main_table);
+				_selectors.main_table_rows = $(_selectors_string.main_table_rows);
+			});
 		}
 	}
 	isPathNotIgnored(overrider, position){
