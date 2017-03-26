@@ -43,8 +43,8 @@ class Block {
 		}
 	}
 	settle(overrider = {}){
-		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position)){
-			if(this.isPathNotIgnored(overrider)){
+		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position) || this.crossedBoundary(this.position)){
+			if(this.isPathNotIgnored(overrider, this.position)){
 				this.previousPosition = null;
 				this.clearCurrentState();
 				Game.spawnBlock();
@@ -52,8 +52,12 @@ class Block {
 			}
 		}
 	}
-	isPathNotIgnored(overrider){
-		var res = ["moveLeft","moveRight"].includes(overrider.name);
+	crossedBoundary(position) {
+		return position.x < 0 || (position.x + _data.blockSize) > _data.colCnt;
+	}
+	isPathNotIgnored(overrider, position){
+		var overriderName = overrider.name;
+		var res = ["moveLeft","moveRight"].includes(overriderName);
 		if(res){
 			if(overrider.name == "moveLeft") 
 				this.position.x++;
@@ -83,7 +87,6 @@ class Block {
 			for(let j=position.x, b=0; j<position.x + _data.blockSize; j++, b++){
 				var elem = $("td:eq("+ j +")", tableRows.eq(i));
 				if(i < 0) continue;
-				
 				if(canErase) elem = elem.filter("." + _classes.current);
 				elem[canErase ? "removeClass" : "addClass"](this.blockData[a][b] ? _classes.marked + " " + _classes.current : "");
 			}
