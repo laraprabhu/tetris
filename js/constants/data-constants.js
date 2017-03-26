@@ -11,7 +11,7 @@ const _data = {
 	initialPositionX: 0,
 	initialPositionY: -1,
 	initialPositionShowcaseX: 0,
-	initialPositionShowcaseY: 0,
+	initialPositionShowcaseY: 3,
 	blocks: [
 		[
 			[

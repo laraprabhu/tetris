@@ -7,8 +7,9 @@ class Arena {
 		this.updateScores();
 		
 		_data.initialPositionX = Math.ceil(_data.colCnt/2);
-		_data.initialPositionShowcaseX = Math.ceil(_data.colCnt_showCase/2);
+		_data.initialPositionShowcaseX = Math.ceil(_data.colCnt_showCase/2) - 1;
 		_selectors.main_table_rows = $(_selectors_string.main_table_rows);
+		_selectors.show_case_table_rows = $(_selectors_string.show_case_table_rows);
   }
   static buildTableBody(element, ...rowColCnt) {
     element.html(this.tailorBody.apply(this, rowColCnt));

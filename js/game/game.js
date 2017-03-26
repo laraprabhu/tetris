@@ -3,14 +3,22 @@
 class Game{
 	static startGame(){
 		this.totalScores = 0;
+		this.nextBlock = null;
 		this.spawnBlock();
 	}
 	static stopGame(){
 		this.destroyTimer();
 	}
 	static spawnBlock(){
-		this.ongoingBlock = new Block(this.pickRandomBlock());
+		this.ongoingBlock = this.nextBlock || new Block(this.pickRandomBlock());
 		this.destroyTimer();
+		this.nextBlock = new Block(this.pickRandomBlock());
+		
+		$("td", _selectors.show_case_table_rows).removeClass();
+		this.nextBlock.pathDecider({ 
+			x : _data.initialPositionShowcaseX, 
+			y : _data.initialPositionShowcaseY 
+		}, false, this.nextBlock.blockData, _selectors.show_case_table_rows);
 		
 		_data.intervalId = setInterval(() => {
 			this.ongoingBlock.draw();

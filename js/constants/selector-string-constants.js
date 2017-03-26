@@ -3,6 +3,7 @@ const _selectors_string = {
   main_table: "#tableTetris",
 	main_table_rows : "#tableTetris tr",
 	show_case_table : ".showcase",
+	show_case_table_rows : ".showcase tr",
 	loader_spinny : ".loader",
 	play_wrapper: ".playWrapper",
 	control_button : ".internalWrappers.devDetailsWrapper .controls a",

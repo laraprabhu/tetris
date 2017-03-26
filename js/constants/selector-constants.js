@@ -2,6 +2,7 @@ const _selectors = {
 	body : null,
   main_table: null,
 	show_case_table : null,
+	show_case_table_rows : null,
 	loader_spinny : null,
 	play_wrapper: null,
 	play_button: null,
