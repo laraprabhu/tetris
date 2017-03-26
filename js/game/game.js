@@ -2,13 +2,20 @@
 
 class Game{
 	static startGame(){
+		this.spawnBlock();
+	}
+	static stopGame(){
+		this.destroyTimer();
+	}
+	static spawnBlock(){
 		let ongoingBlock = new Block(this.pickRandomBlock());
+		this.destroyTimer();
 		
 		_data.intervalId = setInterval(() => {
 			ongoingBlock.draw();
 		}, _data.speed);
 	}
-	static stopGame(){
+	static destroyTimer(){
 		clearInterval(_data.intervalId);
 	}
 	static pickRandomBlock(){
