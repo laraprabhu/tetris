@@ -4,5 +4,6 @@ const _utils = {
   tbody: "<tbody>",
   tr: "<tr>",
   td: "<td>",
-	click: "click"
+	click: "click",
+	keydown: "keydown"
 };

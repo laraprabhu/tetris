@@ -1,4 +1,5 @@
 const _selectors = {
+	body : null,
   main_table: null,
 	show_case_table : null,
 	loader_spinny : null,

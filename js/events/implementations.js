@@ -25,4 +25,21 @@ class Implementations {
 					.prev(_selectors_string.play_button)
 						.removeClass(_classes.disabled);
 	}
+	static keyEventHandler(e) {
+		switch (e.keyCode){
+			case 37:
+				Game.ongoingBlock.moveLeft();
+				break;
+			case 38:
+				break;
+			case 39:
+				Game.ongoingBlock.moveRight();
+				break;
+			case 40:
+				Game.ongoingBlock.moveDown();
+				break;
+		}
+		
+		Game.ongoingBlock.draw(true);
+	}
 }

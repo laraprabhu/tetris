@@ -8,6 +8,7 @@ class ReadyDuty {
 		Arena.implement();
 		LoadDuty.implement();
 		MouseEvents.implement();
+		KeyEvents.implement();
 	}
 	static cacheSelectors(){
 		Object.keys(_selectors).forEach(function(prop){

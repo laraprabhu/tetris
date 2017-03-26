@@ -8,11 +8,11 @@ class Game{
 		this.destroyTimer();
 	}
 	static spawnBlock(){
-		let ongoingBlock = new Block(this.pickRandomBlock());
+		this.ongoingBlock = new Block(this.pickRandomBlock());
 		this.destroyTimer();
 		
 		_data.intervalId = setInterval(() => {
-			ongoingBlock.draw();
+			this.ongoingBlock.draw();
 		}, _data.speed);
 	}
 	static destroyTimer(){
