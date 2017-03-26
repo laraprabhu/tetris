@@ -63,9 +63,22 @@ class Block {
 			if(this.isPathNotIgnored(overrider, this.position)){
 				this.previousPosition = null;
 				this.clearCurrentState();
+				this.detectAndRemovePatterns();
 				Game.spawnBlock();
 				return true;	
 			}
+		}
+	}
+	detectAndRemovePatterns(){
+		var rows = _selectors.main_table_rows.filter(function(){ 
+			return $(this).find("." + _classes.marked).length == _data.colCnt; 
+		});
+		
+		if(rows.length){
+			rows.remove();
+			_selectors.main_table.prepend(Arena.tailorRowsAndCols(rows.length, _data.colCnt));
+			_selectors.main_table = $(_selectors_string.main_table);
+			_selectors.main_table_rows = $(_selectors_string.main_table_rows);
 		}
 	}
 	isPathNotIgnored(overrider, position){

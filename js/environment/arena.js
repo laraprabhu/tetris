@@ -10,15 +10,18 @@ class Arena {
 		_selectors.main_table_rows = $(_selectors_string.main_table_rows);
   }
   static buildTableBody(element, ...rowColCnt) {
-    element.html(this.tailorRowsAndCols.apply(this, rowColCnt));
+    element.html(this.tailorBody.apply(this, rowColCnt));
   }
-  static tailorRowsAndCols(r, c) {
+  static tailorBody(r, c) {
     return this.pullOuterHTML($(_utils.tbody, {
-      html: (new Array(r)).fill(this.pullOuterHTML($(_utils.tr, {
-        html: (new Array(c)).fill(this.pullOuterHTML($(_utils.td))).join(_utils.empty)
-      }))).join(_utils.empty)
+      html: Arena.tailorRowsAndCols(r,c)
     }));
   }
+	static tailorRowsAndCols(r, c) {
+		return new Array(r).fill(this.pullOuterHTML($(_utils.tr,{
+			html : new Array(c).fill(this.pullOuterHTML($(_utils.td))).join(_utils.empty)
+		}))).join(_utils.empty);
+	}
   static pullOuterHTML(jqObject) {
     return jqObject.get(_utils.zero).outerHTML;
   }
