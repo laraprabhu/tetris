@@ -43,7 +43,8 @@ class Block {
 		}
 	}
 	settle(overrider = {}){
-		if(this.isPathBlocked(this.position) || this.reachedBottom(this.position) || this.crossedBoundary(this.position)){
+		if(this.isPathBlocked(this.position) ||
+			 	this.reachedBottom(this.position)){
 			if(this.isPathNotIgnored(overrider, this.position)){
 				this.previousPosition = null;
 				this.clearCurrentState();
@@ -53,6 +54,7 @@ class Block {
 		}
 	}
 	crossedBoundary(position) {
+		
 		return position.x < 0 || (position.x + _data.blockSize) > _data.colCnt;
 	}
 	isPathNotIgnored(overrider, position){
@@ -60,9 +62,9 @@ class Block {
 		var res = ["moveLeft","moveRight"].includes(overriderName);
 		if(res){
 			if(overrider.name == "moveLeft") 
-				this.position.x++;
+				this.moveRight();
 			else 
-				this.position.x--;	
+				this.moveLeft();
 		}
 		return !res;
 	}
@@ -70,9 +72,11 @@ class Block {
 		if(!position) return;
 		for(let i=position.y, a=_data.blockSize-1; i>position.y - _data.blockSize; i--, a--){
 			for(let j=position.x, b=0; j<position.x + _data.blockSize; j++, b++){
-				if(i < 0) continue;
 				var elem = $("td:eq("+ j +")", tableRows.eq(i));
-				if(this.blockData[a][b] && elem.hasClass(_classes.marked) && !elem.hasClass(_classes.current)){
+				var isBoundaryCrossed = (this.blockData[a][b] && ((j < 0) || !elem.length));
+				if(i < 0 && !isBoundaryCrossed) continue;
+				if((this.blockData[a][b] && elem.hasClass(_classes.marked) && !elem.hasClass(_classes.current)) 
+					 	|| (this.blockData[a][b] && ((j < 0) || !elem.length))) {
 					return true;
 				}
 			}
