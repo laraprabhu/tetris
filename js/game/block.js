@@ -82,9 +82,9 @@ class Block {
 		if(len = rows.length){
 			Arena.updateScores(Game.totalScores += (len * 100));
 			rows.hide().remove();
-				_selectors.main_table.prepend(Arena.tailorRowsAndCols(len, _data.colCnt));
-				_selectors.main_table = $(_selectors_string.main_table);
-				_selectors.main_table_rows = $(_selectors_string.main_table_rows);
+			_selectors.main_table.prepend(Arena.tailorRowsAndCols(len, _data.colCnt));
+			_selectors.main_table = $(_selectors_string.main_table);
+			_selectors.main_table_rows = $(_selectors_string.main_table_rows);
 		}
 	}
 	isPathNotIgnored(overrider, position){

@@ -35,7 +35,6 @@ class Implementations {
 				Game.ongoingBlock.makeMovement(e.keyCode);	
 			}  
 		}
-		
 		if(e.keyCode == 80){
 			if(!_selectors.play_button.is("." + _classes.disabled)) {
 				Implementations.play_button_click.call(_selectors.play_button);
